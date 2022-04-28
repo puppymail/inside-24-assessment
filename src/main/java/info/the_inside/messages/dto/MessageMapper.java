@@ -20,7 +20,7 @@ public interface MessageMapper {
             @Mapping(target = "text", source = "dto.text"),
             @Mapping(target = "createdAt", source = "dto.createdAt", dateFormat = "YYYY-MM-dd HH:mm:ss"),
             @Mapping(target = "sender",
-                     expression = "java(new info.the_inside.assessment.model.Sender(dto.getSender(), \"\"))")
+                     expression = "java(new info.the_inside.messages.model.Sender(dto.getSender(), \"\"))")
     })
     Message dtoToMessage(MessageDto dto);
 

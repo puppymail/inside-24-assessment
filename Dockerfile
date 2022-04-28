@@ -8,7 +8,7 @@ RUN chmod +x ./mvnw
 RUN ["./mvnw", "dependency:go-offline"]
 COPY src src/
 COPY curl curl/
-COPY flyway.conf README.md ./
+COPY flyway.conf ./
 RUN ["./mvnw", "compile"]
 RUN ["./mvnw", "test"]
 EXPOSE 7000
