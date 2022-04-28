@@ -1,4 +1,4 @@
-# inside-24-assessment
+# messages-mvc-app
 Тестовое задание на позицию Java Junior в INSIDE.
 
 Запустить проект можно с помощью команды "mvnw spring-boot:run".

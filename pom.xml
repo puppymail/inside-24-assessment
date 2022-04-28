@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>info.the_inside</groupId>
-	<artifactId>assessment</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>inside-24-assessment</name>
-	<description>Java Junior assessment task for Inside24</description>
+	<artifactId>messages</artifactId>
+	<version>1.0.0</version>
+	<name>messages-mvc-app</name>
+	<description>Java Junior assessment task for INSIDE</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-boot.version>2.6.7</spring-boot.version>
