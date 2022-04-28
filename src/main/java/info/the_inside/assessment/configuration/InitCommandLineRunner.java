@@ -1,7 +1,7 @@
 package info.the_inside.assessment.configuration;
 
-import static info.the_inside.assessment.configuration.AuthConstants.DEFAULT_SENDER_NAME;
-import static info.the_inside.assessment.configuration.AuthConstants.DEFAULT_SENDER_PASSWORD;
+import static info.the_inside.assessment.configuration.AuthConfiguration.DEFAULT_SENDER_NAME;
+import static info.the_inside.assessment.configuration.AuthConfiguration.DEFAULT_SENDER_PASSWORD;
 
 import info.the_inside.assessment.model.Sender;
 import info.the_inside.assessment.service.AuthService;
@@ -21,6 +21,7 @@ public class InitCommandLineRunner implements CommandLineRunner {
         this.authService = authService;
     }
 
+    // Adding default user after Context load
     @Override
     public void run(String... args) throws Exception {
         Sender sender = new Sender(DEFAULT_SENDER_NAME, DEFAULT_SENDER_PASSWORD);

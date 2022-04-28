@@ -22,37 +22,42 @@ import javax.security.auth.login.FailedLoginException;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(AccountNotFoundException.class)
-    public final ResponseEntity<Exception> handleSenderNotFoundEx(AccountNotFoundException anfe) {
+    public final ResponseEntity<String> handleSenderNotFoundEx(AccountNotFoundException anfe) {
+        // If no sender found, we return 404
         return ResponseEntity.status(NOT_FOUND)
                 .header(WARNING, SENDER_NOT_FOUND_EX)
-                .body(anfe);
+                .body(anfe.getMessage());
     }
 
     @ExceptionHandler(FailedLoginException.class)
-    public final ResponseEntity<Exception> handleFailedLoginEx(FailedLoginException fle) {
+    public final ResponseEntity<String> handleFailedLoginEx(FailedLoginException fle) {
+        // If login fails, we return 400
         return ResponseEntity.status(BAD_REQUEST)
                 .header(WARNING, FAILED_LOGIN_EX)
-                .body(fle);
+                .body(fle.getMessage());
     }
 
     @ExceptionHandler(NumberFormatException.class)
-    public final ResponseEntity<Exception> handleNumberFormatEx(NumberFormatException nfe) {
+    public final ResponseEntity<String> handleNumberFormatEx(NumberFormatException nfe) {
+        // If historySize is invalid, we return 400
         return ResponseEntity.status(BAD_REQUEST)
                 .header(WARNING, INVALID_HISTORY_SIZE_EX)
-                .body(nfe);
+                .body(nfe.getMessage());
     }
 
     @ExceptionHandler(AccountException.class)
-    public final ResponseEntity<Exception> handleAccountEx(AccountException ae) {
+    public final ResponseEntity<String> handleAccountEx(AccountException ae) {
+        // If sender already exists, we return 409
         return ResponseEntity.status(CONFLICT)
                 .header(WARNING, SENDER_ALREADY_EXISTS_EX)
-                .body(ae);
+                .body(ae.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
-    public final ResponseEntity<Exception> handleOtherEx(Exception e) {
+    public final ResponseEntity<String> handleOtherEx(Exception e) {
+        // Otherwise, return 500
         return ResponseEntity.status(INTERNAL_SERVER_ERROR)
-                .body(e);
+                .body(e.getMessage());
     }
 
 }

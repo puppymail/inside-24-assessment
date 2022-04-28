@@ -35,18 +35,22 @@ public class AuthControllerImpl implements AuthController {
     }
 
     @PostMapping(value = LOGIN_URL, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    // AuthRequest consists of name and password fields
     public JwtTokenResponse login(@RequestBody AuthRequest request)
             throws FailedLoginException, AccountNotFoundException {
         Optional<String> jwtTokenOpt;
         jwtTokenOpt = service.login( new Sender( request.getName(), request.getPassword() ) );
 
+        // If no token was provided by service.login, then throw ex
         return new JwtTokenResponse( jwtTokenOpt.orElseThrow(FailedLoginException::new) );
     }
 
     @PostMapping(value = REGISTER_URL, consumes = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)
+    // AuthRequest consists of name and password fields
     public void register(@RequestBody AuthRequest request) throws AccountException {
-        Sender registeredSender = service.register( new Sender( request.getName(), request.getPassword() ) );
+        // Create new Sender. Json structure is the same with login
+        service.register( new Sender( request.getName(), request.getPassword() ) );
     }
 
 }

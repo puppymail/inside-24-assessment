@@ -40,6 +40,7 @@ public class MessageServiceImpl implements MessageService {
         requireNonNull(text);
         requireNonNull(senderName);
         Message message = new Message( text, now() );
+        // Search for sender by name, if no matching sender found, set the sender to null
         message.setSender( senderRepo.findById(senderName).orElse(null) );
 
         return messageRepo.save(message);
