@@ -1,7 +1,7 @@
 # inside-24-assessment
 Assessment task for Junior Java programmer position at INSIDE
 
-Запустить проект можно с помощью Maven spring-boot:run.
+Запустить проект можно с помощью команды "mvnw spring-boot:run".
 База данных по умолчанию стоит H2 In-Memory, поэтому между запусками база данных будет сбрасываться.
 При поднятии контекста создаётся один дефолтный отправитель с именем и паролем "root". 
 Поменять можно в AuthConfiguration.
