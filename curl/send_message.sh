@@ -11,3 +11,5 @@ curl --location --request POST "localhost:7000/api/message" \
     \"name\": \"$NAME\",
     \"message\": \"$MESSAGE\"
 }"
+echo
+read -p "Press any key to exit..." -srn 1

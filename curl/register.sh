@@ -11,3 +11,4 @@ curl --location --request POST "localhost:7000/api/register" \
 }"
 echo
 echo "Sender \"$NAME\" registered"
+read -p "Press any key to exit..." -srn 1

@@ -11,3 +11,4 @@ TOKEN=$(curl --location --request POST "localhost:7000/api/login" \
         }" | grep -Po "(?>(?<=^{\"token\":\").+(?=\"}$))")
 echo
 echo "The token is: $TOKEN"
+read -p "Press any key to exit..." -srn 1

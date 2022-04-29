@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "------------------------------"
 TOKEN=$(curl --verbose --location --request POST "localhost:7000/api/login" \
         --header "Content-Type: application/json" \
         --data-raw "{
@@ -32,3 +33,5 @@ curl --verbose --location --request POST "localhost:7000/api/message" \
     \"name\": \"root\",
     \"message\": \"history 10\"
 }"
+echo "------------------------------"
+read -p "Press any key to exit..." -srn 1
