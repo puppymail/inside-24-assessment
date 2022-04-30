@@ -18,7 +18,7 @@ import javax.security.auth.login.AccountException;
 import javax.security.auth.login.AccountNotFoundException;
 import javax.security.auth.login.FailedLoginException;
 
-@ControllerAdvice(basePackages = "info.the_inside.assessment.controller")
+@ControllerAdvice(basePackages = "info.the_inside.messages.controller")
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(AccountNotFoundException.class)
