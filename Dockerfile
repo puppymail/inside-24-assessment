@@ -9,6 +9,8 @@ RUN ["./mvnw", "dependency:go-offline"]
 COPY src src/
 COPY curl curl/
 COPY flyway.conf ./
+RUN ["apk", "add", "--no-cache", "--upgrade", "grep"]
+RUN ["apk", "add", "--no-cache", "--upgrade", "curl"]
 RUN ["./mvnw", "compile"]
 RUN ["./mvnw", "test"]
 EXPOSE 7000
